@@ -25,8 +25,8 @@ backtest:
   # for testing max draw down (MDD) at 03-12
   # see here for more details
   # https://www.investopedia.com/terms/m/maximum-drawdown-mdd.asp
-  startTime: "2021-01-01"
-  endTime: "2021-01-30"
+  startTime: "2021-04-01"
+  endTime: "2021-04-07"
   symbols:
   - USDTTWD
   account:
@@ -44,6 +44,6 @@ exchangeStrategies:
     quantity: 10.0 # 10 USDT per grid
     gridNumber: 50  # 50 GRID, Total Amount will be 10 USDT * 50 GRID = 500 USDT
     profitSpread: 0.1 # When buying USDT at 28.1, we will sell it at 28.1 + 0.1 = 28.2, When selling USDT at 28.1, we will buy it back at 28.1 - 0.1 = 28.0
-    upperPrice: 28.50
+    upperPrice: 29.00
     lowerPrice: 27.90
     long: true # long mode means we don't keep cash when we sell usdt, we will use the same amount of twd to buy more usdt back
