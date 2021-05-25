@@ -128,6 +128,7 @@ func (e *Exchange) QueryMarkets(ctx context.Context) (types.MarketMap, error) {
 
 		market := types.Market{
 			Symbol:          symbol,
+			LocalSymbol:     m.ID,
 			PricePrecision:  m.QuoteUnitPrecision,
 			VolumePrecision: m.BaseUnitPrecision,
 			QuoteCurrency:   toGlobalCurrency(m.QuoteUnit),
@@ -539,7 +540,6 @@ func (e *Exchange) QueryAccount(ctx context.Context) (*types.Account, error) {
 	return a, nil
 }
 
-
 func (e *Exchange) QueryWithdrawHistory(ctx context.Context, asset string, since, until time.Time) (allWithdraws []types.Withdraw, err error) {
 	startTime := since
 	limit := 1000
@@ -865,4 +865,3 @@ func (e *Exchange) QueryAveragePrice(ctx context.Context, symbol string) (float6
 
 	return (util.MustParseFloat(ticker.Sell) + util.MustParseFloat(ticker.Buy)) / 2, nil
 }
-
